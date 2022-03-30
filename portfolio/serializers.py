@@ -28,7 +28,7 @@ class MeetingSerializer(serializers.ModelSerializer):
     model = Meeting
     fields = ('pk', 'employee', 'manager', 'subject', 'comment', 'requested_date', 'created_date')
 
-  class ManagerSerializer(serializers.ModelSerializer):
+class ManagerSerializer(serializers.ModelSerializer):
     class Meta:
       model = Manager
       fields = ('pk', 'employee', 'name', 'manager_number', 'city', 'state', 'email', 'created_date', 'updated_date')
