@@ -16,16 +16,16 @@ class TaskList(admin.ModelAdmin):
 
 
 class FeedbackList(admin.ModelAdmin):
-    list_display = ('employee','manager', 'task', 'subject', 'comment')
-    list_filter = ('task','manager', 'subject')
-    search_fields = ('task','manager', 'subject')
+    list_display = ('employee', 'task', 'subject', 'comment')
+    list_filter = ('task','subject')
+    search_fields = ('task','subject')
     ordering = ['task']
 
 
 class MeetingList(admin.ModelAdmin):
-  list_display = ('employee', 'manager', 'subject', 'comment', 'requested_date', 'created_date')
-  list_filter = ('subject', 'manager', 'employee')
-  search_fields = ('employee', 'manager', 'subject')
+  list_display = ('employee', 'subject', 'comment', 'requested_date', 'created_date')
+  list_filter = ('subject', 'employee')
+  search_fields = ('employee', 'subject')
   ordering = ['subject']
 
 class ManagerList(admin.ModelAdmin):

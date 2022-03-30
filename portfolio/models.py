@@ -71,7 +71,6 @@ class Task(models.Model):
 
 class Feedback(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='feedbacks')
-    manager = models.ForeignKey(Manager, on_delete=models.CASCADE, related_name='feedbacks_m', default='')
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='feedbacks_t', default='')
     subject = models.CharField(max_length=50, default='')
     comment = models.CharField(max_length=250, default='')
@@ -97,7 +96,6 @@ class Feedback(models.Model):
 
 class Meeting(models.Model):
   employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='meetings')
-  manager = models.ForeignKey(Manager, on_delete=models.CASCADE, related_name='meetings_m', default='')
   subject = models.CharField(max_length=50, default='')
   comment = models.CharField(max_length=500, default='')
   requested_date = models.DateTimeField(

@@ -20,13 +20,13 @@ class FeedbackSerializer(serializers.ModelSerializer):
 
     class Meta:
             model = Feedback
-            fields = ('pk','employee', 'manager', 'task', 'subject', 'comment', 'created_date', 'updated_date')
+            fields = ('pk','employee', 'task', 'subject', 'comment', 'created_date', 'updated_date')
 
 
 class MeetingSerializer(serializers.ModelSerializer):
   class Meta:
     model = Meeting
-    fields = ('pk', 'employee', 'manager', 'subject', 'comment', 'requested_date', 'created_date')
+    fields = ('pk', 'employee', 'subject', 'comment', 'requested_date', 'created_date')
 
 class ManagerSerializer(serializers.ModelSerializer):
     class Meta:
