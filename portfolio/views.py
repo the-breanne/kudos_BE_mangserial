@@ -135,47 +135,8 @@ def getFeedback(request, pk):
     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-@csrf_exempt
-@api_view(['GET', 'POST'])
-def manager_list(request):
-  permission_classes = (IsAuthenticatedOrReadOnly)
-  if request.method == 'GET':
-    managers = Manager.objects.all()
-    serializer = ManagerSerializer(managers, context={'request': request}, many=True)
-    return Response({'data': serializer.data})
-
-  elif request.method == 'POST':
-    serializer = ManagerSerializer(data=request.data)
-    if serializer.is_valid():
-      serializer.save()
-      return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def getManager(request, pk):
-  """
-  Retrieve, update or delete a manager instance.
-  """
-  try:
-    manager = Manager.objects.get(pk=pk)
-  except Manager.DoesNotExist:
-    return Response(status=status.HTTP_404_NOT_FOUND)
-
-  if request.method == 'GET':
-    serializer = ManagerSerializer(manager, context={'request': request})
-    return Response(serializer.data)
-
-  elif request.method == 'PUT':
-    serializer = ManagerSerializer(manager, data=request.data, context={'request': request})
-    if serializer.is_valid():
-      serializer.save()
-      return Response(serializer.data)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-  elif request.method == 'DELETE':
-    manager.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 

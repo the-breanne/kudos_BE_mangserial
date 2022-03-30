@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Employee, Task, Feedback, Meeting, Manager
+from .models import Employee, Task, Feedback, Meeting
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
@@ -28,7 +28,3 @@ class MeetingSerializer(serializers.ModelSerializer):
     model = Meeting
     fields = ('pk', 'employee', 'subject', 'comment', 'requested_date', 'created_date')
 
-class ManagerSerializer(serializers.ModelSerializer):
-    class Meta:
-      model = Manager
-      fields = ('pk', 'employee', 'name', 'manager_number', 'city', 'state', 'email', 'created_date', 'updated_date')

@@ -21,10 +21,8 @@ urlpatterns = [
   url(r'^api/feedbacks/(?P<pk>[0-9]+)$', views.getFeedback),
   path('meetings/', views.meeting_list),
   url(r'^api/meetings/$', views.meeting_list),
-  url(r'^api/meetings/(?P<pk>[0-9]+)$', views.getMeeting),
-  path('managers/', views.manager_list),
-  url(r'^api/managers/$', views.manager_list),
-  url(r'^api/managers/(?P<pk>[0-9]+)$', views.getManager)
+  url(r'^api/meetings/(?P<pk>[0-9]+)$', views.getMeeting)
+
 ]
 
 

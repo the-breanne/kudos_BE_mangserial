@@ -24,28 +24,6 @@ class Employee(models.Model):
         return str(self.employee_number)
 
 
-class Manager(models.Model):
-  employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='managers')
-  name = models.CharField(max_length=50)
-  manager_number = models.IntegerField(blank=False, null=False, default='1')
-  city = models.CharField(max_length=50, default='')
-  state = models.CharField(max_length=50, default='')
-  email = models.EmailField(max_length=200, default='')
-  created_date = models.DateTimeField(
-    default=timezone.now)
-  updated_date = models.DateTimeField(default=timezone.now)
-
-  def created(self):
-    self.created_date = timezone.now()
-    self.save()
-
-  def updated(self):
-    self.updated_date = timezone.now()
-    self.save()
-
-  def __str__(self):
-    return str(self.manager_number)
-
 
 
 class Task(models.Model):

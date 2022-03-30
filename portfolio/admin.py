@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Employee, Task, Feedback, Meeting, Manager
+from .models import Employee, Task, Feedback, Meeting
 
 class EmployeeList(admin.ModelAdmin):
     list_display = ('employee_number', 'name', 'city', 'email')
@@ -28,15 +28,10 @@ class MeetingList(admin.ModelAdmin):
   search_fields = ('employee', 'subject')
   ordering = ['subject']
 
-class ManagerList(admin.ModelAdmin):
-  list_display = ('employee', 'name', 'manager_number', 'city', 'email')
-  list_filter = ('employee', 'name', 'city')
-  search_fields = ('employee', 'name')
-  ordering = ['employee']
+
 
 
 admin.site.register(Employee, EmployeeList)
 admin.site.register(Task, TaskList)
 admin.site.register(Feedback, FeedbackList)
 admin.site.register(Meeting, MeetingList)
-admin.site.register(Manager, ManagerList)
